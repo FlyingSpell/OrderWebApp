@@ -1,0 +1,20 @@
+﻿
+.table_border table
+{
+    border: 1px solid grey;
+    width: 100%;
+}
+
+.table_border td, .table_border th
+{
+    border: 1px solid grey;
+    text-align: left;
+    padding: 8px;
+}
+
+.table_border
+{
+    height: 80vh;
+    border: 5px solid #008a77;
+    overflow: scroll;
+}

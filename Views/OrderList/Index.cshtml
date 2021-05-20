@@ -1,10 +1,48 @@
-﻿@{
+﻿@using OrderWebApp.Models
+
+@{
     Layout = "_Layout";
 }
 
 @{
-    ViewData["Title"] = "Сптсок заказов";
+    ViewData["Title"] = "Список заказов";
 }
 
+@model IEnumerable<Order>
 
-<h1>Список заказов.</h1>
+@section AddCss
+{
+    <link rel="stylesheet" type="text/css" href="~/css/order_list.css" />
+}
+
+<h1 class="centered big_text">
+    Список заказов:
+</h1>
+
+<div class="table_border">
+
+    <table>
+        <tr>
+            <th>Город отправителя</th>
+            <th>Адрес отправителя</th>
+            <th>Город получателя</th>
+            <th>Адрес отправителя</th>
+            <th>Вес груза (кг.)</th>
+            <th>Дата забора груза</th>
+        </tr>
+
+        @for(int i = 0; i < 100; i++)
+            @foreach(Order order in Model)
+            {
+                <tr>
+                    <td> @order.SenderCity </td>
+                    <td> @order.SenderAddress </td>
+                    <td> @order.RecipientCity </td>
+                    <td> @order.RecipientAddress </td>
+                    <td> @order.PackageWeightInkilograms </td>
+                    <td> @order.PackagePickUpDate </td>
+                </tr>
+            }
+    </table>
+ 
+</div>
