@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using OrderWebApp.Models;
+using OrderWebApp.ViewModels;
 
 namespace OrderWebApp.Controllers
 {
@@ -18,7 +19,14 @@ namespace OrderWebApp.Controllers
             List<Order> orderList = m_ModelsDbContext.Orders.ToList();
             orderList.Reverse();
 
-            return View(orderList);
+            List<OrderViewModel> orderViewModelList = new List<OrderViewModel>(orderList.Count);
+
+            foreach(Order order in orderList)
+            {
+                orderViewModelList.Add(new OrderViewModel(order));
+            }
+
+            return View(orderViewModelList);
         }
     }
 }

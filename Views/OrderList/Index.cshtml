@@ -1,4 +1,5 @@
 ﻿@using OrderWebApp.Models
+@using OrderWebApp.ViewModels
 
 @{
     Layout = "_Layout";
@@ -8,7 +9,7 @@
     ViewData["Title"] = "Список заказов";
 }
 
-@model IEnumerable<Order>
+@model IEnumerable<OrderViewModel>
 
 @section AddCss
 {
@@ -32,18 +33,18 @@
             <th>Дата забора груза</th>
         </tr>
 
-        @foreach(Order order in Model)
+        @foreach(OrderViewModel orderViewModel in Model)
         {
             <tr>
-                <td> @order.Number </td>
-                <td> @order.SenderCity </td>
-                <td> @order.SenderAddress </td>
-                <td> @order.RecipientCity </td>
-                <td> @order.RecipientAddress </td>
-                <td> @order.PackageWeightInkilograms </td>
-                <td> @order.PackagePickUpDate </td>
+                <td> @orderViewModel.Number </td>
+                <td> @orderViewModel.SenderCity </td>
+                <td> @orderViewModel.SenderAddress </td>
+                <td> @orderViewModel.RecipientCity </td>
+                <td> @orderViewModel.RecipientAddress </td>
+                <td> @orderViewModel.PackageWeightInkilograms </td>
+                <td> @orderViewModel.PackagePickUpDate </td>
             </tr>
         }
     </table>
- 
+
 </div>
