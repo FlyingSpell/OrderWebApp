@@ -1,0 +1,82 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+@{
+    ViewData["Title"] = "Сделать заказ";
+}
+
+
+@section AddCss
+{
+    <link rel="stylesheet" type="text/css" href="~/css/form_validation.css" />
+}
+
+<div class="centered" style="margin:10px">
+    Пожалуйста, заполните форму (все поля обязательны для заполнения).
+</div>
+
+<div class="centered" style="margin:10px">
+    <form method="post">
+        <table align="center">
+
+            <tr>
+                <td>
+                    <label> Город отправителя </label>
+                </td>
+                <td>
+                    <input type="text" name="senderCity" pattern ="\S+.*" required>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label> Адрес отправителя </label>
+                </td>
+                <td>
+                    <input type="text" name="senderAddress" pattern ="\S+.*" required>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label> Город получателя </label>
+                </td>
+                <td>
+                    <input type="text" name="recipientCity" pattern ="\S+.*" required>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label> Адрес полчателя </label>
+                </td>
+                <td>
+                    <input type="text" name="recipientAddress" pattern ="\S+.*" required>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label> Вес груза (в коллограммах) </label>
+                </td>
+                <td>
+                    <input type="text" pattern ="\d*" name="packageWeightInkilograms" required>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label> Дата забора груза </label>
+                </td>
+                <td>
+                    <input type="date" name="packagePickUpDate" required>
+                </td>
+            </tr>
+
+        </table>
+
+        <button asp-controller="MakeOrder" asp-action="MakeNewOrder">Сделать заказ!</button>
+
+    </form>
+</div>

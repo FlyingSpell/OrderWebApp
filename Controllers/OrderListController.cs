@@ -1,32 +1,24 @@
-﻿using System;
+﻿using System.Linq;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using OrderWebApp.Models;
-using System.Collections.Generic;
 
 namespace OrderWebApp.Controllers
 {
     public class OrderListController : Controller
     {
-        private List<Order> m_OrderList;
-        public OrderListController()
+        private ModelsDbContext m_ModelsDbContext;
+        public OrderListController(ModelsDbContext context)
         {
-            m_OrderList = new List<Order>()
-            {
-                new Order()
-                {
-                    SenderAddress = "asdasd",
-                    SenderCity = "dfsdfsfd",
-                    RecipientAddress = "dfgdfgdfgdfg",
-                    RecipientCity = "dfgdfdfgdfg",
-                    PackageWeightInkilograms = 10,
-                    PackagePickUpDate = DateTime.Now
-                }
-            };
+            m_ModelsDbContext = context;
         }
 
         public IActionResult Index()
         {
-            return View(m_OrderList);
+            List<Order> orderList = m_ModelsDbContext.Orders.ToList();
+            orderList.Reverse();
+
+            return View(orderList);
         }
     }
 }

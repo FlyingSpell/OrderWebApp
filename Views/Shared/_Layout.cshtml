@@ -8,12 +8,13 @@
     <link rel="stylesheet" type="text/css" href="~/css/menu.css" />
 
     @RenderSection("AddCss", required: false)
+
 </head>
 <body>
     <div class="menu">
         <ul>
             <li> <a asp-controller="Home" asp-action="Index">Главная</a> </li>
-            <li> <a asp-controller="OrderList" asp-action="Index">Сделать заказ</a> </li>
+            <li> <a asp-controller="MakeOrder" asp-action="Index">Сделать заказ</a> </li>
             <li> <a asp-controller="OrderList" asp-action="Index">Список заказов</a> </li>
         </ul>
     </div>

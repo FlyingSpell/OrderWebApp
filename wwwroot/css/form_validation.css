@@ -1,0 +1,11 @@
+﻿/*form .form_input:valid :last-child {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+form button
+{
+    opacity: 0.5;
+    pointer-events: none;
+}
+    */
